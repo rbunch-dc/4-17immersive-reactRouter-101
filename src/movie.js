@@ -19,9 +19,34 @@ class Movie extends Component{
         })
 	}
 
+	componentWillUpdate(nextProps, nextState) {
+		// const movieId = nextProps.match.params.movieId;
+		// console.log(nextProps)
+  //       $.getJSON('https://api.themoviedb.org/3/movie/'+movieId+'?api_key=fec8b5ab27b292a68294261bb21b04a5', (movie)=>{
+  //       	console.log(movie)
+  //       	this.setState({
+  //       		movie: movie
+  //       	})
+  //       })
+
+	}
+
+	componentWillReceiveProps(nextProps) {
+		console.log(nextProps)
+		const movieId = nextProps.match.params.movieId;
+		console.log(nextProps)
+        $.getJSON('https://api.themoviedb.org/3/movie/'+movieId+'?api_key=fec8b5ab27b292a68294261bb21b04a5', (movie)=>{
+        	console.log(movie)
+        	this.setState({
+        		movie: movie
+        	})
+        })		
+	}
+
+
 	// Params are inside of props.match
 	render(){
-		console.log(this.props.match.params.movieId)
+		console.log(this.props)
 		if(this.state.movie == {}){
 			return(
 				<h1>{this.props.match.params.movieId}</h1>

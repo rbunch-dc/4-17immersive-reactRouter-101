@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        $.getJSON('https://api.themoviedb.org/3/search/movie?api_key=fec8b5ab27b292a68294261bb21b04a5&query=superman', (gists)=>{
+        $.getJSON('https://api.themoviedb.org/3/movie/now_playing?api_key=fec8b5ab27b292a68294261bb21b04a5&query=superman', (gists)=>{
             // this.state.gists = gists BAD!!!
             console.log(gists)
             this.setState({
